@@ -1,4 +1,5 @@
 <?php  
+// comments
 session_start();
 require 'functions.php';
 
