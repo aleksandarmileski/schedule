@@ -5,7 +5,8 @@
     <?php foreach ($data as $user) {
     	echo "<option value=".$user['username'].">".$user['username']."</option>";
     }
-      ?>
+    ?>
     </select>
+    <button type="submit" class="btn" name="get-user">View user</button>
   </div>
-  </form>
+</form>

@@ -1,7 +1,13 @@
 <?php 
-//comment by dijana
+
 session_start();
 require 'functions.php';
+
+$data = getUsers();
+if (isset($_POST['get-user'])) {
+  $username = $_POST['users'];
+  $_SESSION['userid'] = getUserId($username);
+}
 
 // $schedule=array();
 if (isset($_SESSION['value'])) {
@@ -37,9 +43,6 @@ if (isset($_POST['get-value'])) {
   $_SESSION['value']=$schedule;
 
 }
-
-$data = getUsers();
-
 
 ?>
 
