@@ -38,6 +38,9 @@ if (isset($_POST['get-value'])) {
 
 }
 
+$data = getUsers();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +71,7 @@ if (isset($_POST['get-value'])) {
           </div>
         </div>
         <div class="form-bottom">
-        
+        <?php require 'formadmin.php'; ?>
           <?php require 'form.php'; ?>
         </div>
       </div>

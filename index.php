@@ -17,7 +17,7 @@ if(isset($_POST['formLogin'])){
       if (getUserRole($_SESSION['userid'])==0) {
         header("Location: calendar.php"); 
       }else{
-        //admin login, to be continued...
+        header("Location: admincalendar.php"); 
       }
     }else{
       echo "Wrong password. Try again.";

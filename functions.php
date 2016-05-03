@@ -1,6 +1,6 @@
 <?php 
 
-	// CREATING DB CONNECTION
+	// CREATING DB CONNECTION port=3307
 	function connection(){
 		$servername = "localhost";
 		$username = "root";
@@ -8,7 +8,7 @@
 		$dbname = "dbtasks";
 
 		try {
-			$conn = new PDO("mysql:host={$servername};dbname={$dbname};port=3307",$username,$password);
+			$conn = new PDO("mysql:host={$servername};dbname={$dbname}",$username,$password);
 			$conn->setAttribute(
 				PDO::ATTR_ERRMODE, 
 				PDO::ERRMODE_EXCEPTION);
@@ -90,6 +90,14 @@
 		$query->execute();
 		$result = $query;
 		return $result;
-	}	
+	}
+// GET Users
+	function getUsers(){
+		$conn=connection();
+		$query = $conn->prepare("SELECT username FROM users");
+		$query->execute();
+		$result = $query;
+		return $result;
+	}		
 
 ?>
