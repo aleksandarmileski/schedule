@@ -10,7 +10,14 @@ if(isset($_POST['formLogin'])){
     if (checkPassword($username,$password)) {
       $_SESSION['username'] = $username;
       $_SESSION['userid']=getUserId($username);
-      header("Location: calendar.php");
+      if (isset($_SESSION['value'])) {
+        unset($_SESSION['value']);
+      }
+      if (getUserRole($_SESSION['userid'])==0) {
+        header("Location: calendar.php"); 
+      }else{
+        //admin login, to be continued...
+      }
     }else{
       echo "Wrong password. Try again.";
     }

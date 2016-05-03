@@ -55,6 +55,7 @@
 	  return false;
 	}
 
+	//GET User ID
 	function getUserId($username){
 		$conn=connection();		
 		foreach ($conn->query("SELECT id FROM users WHERE `username`='$username'") as $row) {
@@ -62,6 +63,15 @@
 		}
 	}
 
+	//GET User role type
+	function getUserRole($id){
+		$conn=connection();		
+		foreach ($conn->query("SELECT role_type FROM users WHERE `id`='$id'") as $row) {
+			return $row['role_type'];
+		}
+	}
+
+	//ADD Task to database
 	function addTask($day,$hour,$priority,$text,$userid){
 		$conn=connection();
 		try {
@@ -72,6 +82,14 @@
 		}
 		$conn=null;
 	}
-	
+
+	//GET tasks
+	function getTasks($user_id){
+		$conn=connection();
+		$query = $conn->prepare("SELECT * FROM tasks where user_id=".$user_id);
+		$query->execute();
+		$result = $query;
+		return $result;
+	}	
 
 ?>
