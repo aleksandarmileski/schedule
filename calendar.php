@@ -1,5 +1,5 @@
 <?php 
-//comment
+//comment by dijana
 session_start();
 require 'functions.php';
 
