@@ -1,34 +1,24 @@
 <?php  
-// comments
+
 session_start();
 require 'functions.php';
 
 if(isset($_POST['formLogin'])){
-  $username = $_POST['form-username'];
-  $password = $_POST['form-password'];
-
-  if (checkUser($username)) {
-    if (checkPassword($username,$password)) {
-      $_SESSION['username'] = $username;
-      $_SESSION['userid']=getUserId($username);
-      if (isset($_SESSION['value'])) {
-        unset($_SESSION['value']);
-      }
-      if (getUserRole($_SESSION['userid'])==0) {
-        header("Location: calendar.php"); 
-      }else{
-        header("Location: admincalendar.php"); 
-      }
-    }else{
-      echo "Wrong password. Try again.";
-    }
-  }else{
-    echo "Username does not exists! Try again.";
-  }  
+  if (isset($_SESSION['errMessage'])) {
+    unset($_SESSION['errMessage']);
+  }
+  require 'formLogin.php';  
 }
 
-if (isset($_POST['formRegister'])) {
-  header("Location: register.php");
+try {
+  if (isset($_POST['formSignup'])) {
+    if (isset($_SESSION['errMessage'])) {
+      unset($_SESSION['errMessage']);
+    }
+    require 'formSignup.php';
+  }   
+} catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
 }
 
 ?>
@@ -46,63 +36,37 @@ if (isset($_POST['formRegister'])) {
 
   <title>Bare - Start Bootstrap Template</title>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- login CSS -->
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- Custom CSS -->
-  <style>
-    body {
-      padding-top: 70px;
-      /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-  </style>
+</head>
 
-      </head>
 
-      <body>
-        <div class="container">
+<body>
 
-          <div class="row">
-            
-          </div>
-          <div class="row">
-            <div class="form-box">
-              <div class="form-top">
-                <div class="form-top-left">
-                  <h3>Login to our site</h3>
-                  <p>Enter username and password to log on:</p>
-                </div>
-                <div class="form-top-right">
-                  <i class="fa fa-lock"></i>
-                </div>
-              </div>
-              <div class="form-bottom">
-              <form role="form" action="" method="post" class="login-form">
-                  <div class="form-group">
-                    <label class="sr-only" for="form-username">Username</label>
-                    <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for="form-password">Password</label>
-                    <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
-                  </div>
-                  <button type="submit" class="btn" name="formLogin">Sign in!</button>
-                  <button type="submit" class="btn" name="formRegister">Register</button>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- /.row -->
+  <div class="login-page">
+    <div class="form">
+      <form action="" method="post" class="register-form">
+        <input type="text" placeholder="Enter Username" name="form-username" id="form-username"/>
+        <input type="password" placeholder="Password" name="form-password" id="form-password"/>
+        <input type="password" placeholder="Repeat Password" name="form-password1" id="form-password1"/>
+        <button name="formSignup">create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form action="" method="post" class="login-form" >
+        <input type="text" placeholder="Username" name="form-username" id="form-username" />
+        <input type="password" placeholder="Password" name="form-password" name="form-password"/>
+        <button name="formLogin">login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+      <?php if (isset($_SESSION['errMessage'])): ?>
+        <p><?php echo $_SESSION['errMessage']; ?></p>
+      <?php endif ?>
+    </div>
+  </div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-        </div>
-        <!-- /.container -->
+  <script src="js/index.js"></script>
+</body>
 
-        <!-- jQuery Version 1.11.1 -->
-        <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-
-      </body>
-
-      </html>
+</html>
