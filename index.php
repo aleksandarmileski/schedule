@@ -34,7 +34,7 @@ try {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bare - Start Bootstrap Template</title>
+  <title>Schedule</title>
 
   <!-- login CSS -->
   <link rel="stylesheet" href="css/style.css">

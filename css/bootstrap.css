@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  
 }
 article,
 aside,
@@ -249,6 +250,7 @@ th {
     border: 1px solid #000;
   }
   .table {
+    margin-top: 100px;
     border-collapse: collapse !important;
   }
   .table td,
@@ -2508,7 +2510,7 @@ legend {
 }
 label {
   display: inline-block;
-  max-width: 100%;
+  width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -2631,7 +2633,7 @@ input[type="search"] {
   }
 }
 .form-group {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .radio,
 .checkbox {

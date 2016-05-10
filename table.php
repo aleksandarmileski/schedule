@@ -1,12 +1,12 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th></th>
-			<th>Monday</th>
-			<th>Tuesday</th>
-			<th>Wednesday</th>
-			<th>Thursday</th>
-			<th>Friday</th>
+			<th class='hour'></th>
+			<th class='hour'>Monday</th>
+			<th class='hour'>Tuesday</th>
+			<th class='hour'>Wednesday</th>
+			<th class='hour'>Thursday</th>
+			<th class='hour'>Friday</th>
 		</tr>
 	</thead>
 	<tbody>                

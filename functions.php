@@ -4,7 +4,7 @@
 	function connection(){
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "root";
 		$dbname = "dbtasks";
 
 		try {

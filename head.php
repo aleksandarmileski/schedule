@@ -6,29 +6,33 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bare - Start Bootstrap Template</title>
+  <title>Calendar</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <style>
-    body {
-      padding-top: 70px;
-      /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-    .hour{
-      background: #C5C5C5;
-      font-weight: bold;
-      text-align: center;
-      padding: 8px 2px !important;
-    }
+  <style type="text/css">
+    
     tr,td{
       text-align: center;
     }
+
     td{
       border: 1px solid #ddd !important;
     }
+    .hour{
+      background: #76b852;
+      color: white;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      text-align: center;
+      padding: 8px 2px !important;
+      border: 0px solid #ddd !important;
+    }
   </style>
+
+  <link href="css/calstyle.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 
 </head>
