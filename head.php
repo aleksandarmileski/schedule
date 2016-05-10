@@ -32,7 +32,7 @@
     }
   </style>
 
-  <link href="css/calstyle.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+  <link href="css/calstyle.css" rel="stylesheet">
 
 </head>

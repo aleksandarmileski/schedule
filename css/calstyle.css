@@ -27,3 +27,7 @@ p a:hover {
 form legend h1{
 	color: #76b852;
 }
+select option{
+	color: white;
+	background-color: #76b852;
+}
