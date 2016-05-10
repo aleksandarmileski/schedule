@@ -44,33 +44,18 @@ if (isset($_POST['get-value'])) {
 <?php require 'head.php'; ?>
 
 <body>
+  <div class="text-center customheader">
+    <h1 class="leftalign"><?php echo 'Welcome '.(isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest').'!'; ?></h1>
+    <p class="rightalign"><a href="index.php">Logout</a></p>             
+  </div>
   <!-- Page Content -->
   <div class="container">
-
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1><?php echo 'Welcome '.(isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest').'!'; ?>
-        </h1>
-        <p>___</p>
-      </div>
+    
+    <div class="text-center">
+      <?php require 'formadmin.php'; ?>
+      <?php require 'form.php'; ?>
     </div>
-
-    <div class="col-lg-4">
-      <div class="form-box">
-        <div class="form-top">
-          <div class="form-top-left">
-            <h3>Task Form</h3>
-          </div>
-          <div class="form-top-right">
-            <i class="fa fa-lock"></i>
-          </div>
-        </div>
-        <div class="form-bottom">
-          <?php require 'formadmin.php'; ?>
-          <?php require 'form.php'; ?>
-        </div>
-      </div>
-    </div>
+    
     <div class="row">
       <?php require 'table.php'; ?>
     </div>
