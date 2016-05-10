@@ -1,0 +1,29 @@
+.rightalign {
+	display: inline-block;
+	float: right;
+	margin: 5px 10px 0 0;
+}
+.leftalign{
+	display: inline-block;
+	float: left;
+	color: white;
+	margin: 5px 0 0 10px;
+}
+.topmargin {
+	margin-top: 10px;
+}
+.bottommargin {
+	margin-bottom: 10px;
+	font-size: 1.1em;
+}
+p a {
+	color: white;
+}
+p a:hover {
+	font-size: 1.2em;
+	color: white;
+	text-decoration: none;
+}
+form legend h1{
+	color: #76b852;
+}
