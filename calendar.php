@@ -3,17 +3,7 @@
 session_start();
 require 'functions.php';
 
-if (isset($_POST['get-value'])) {
-  $day=$_POST['days'];
-  $hour=$_POST['hours'];
-  $priority=$_POST['priorities'];
-  $text=$_POST['text'];  
 
-  $schedule[$hour][$day]=array('priority'=>$priority,'text'=>$text);
-
-  addTask($day,$hour,$priority,$text,$_SESSION['userid']);
-
-}
 
 $tasks=getTasks($_SESSION['userid']);
 $schedule=array();
@@ -24,6 +14,18 @@ for ($i=1; $i < 10 ; $i++) {
 }
 foreach ($tasks as $task) {
   $schedule[$task['hour']][$task['day']]=array('priority'=>$task['priority'],'text'=>$task['context']);
+}
+
+if (isset($_POST['get-value'])) {
+  $day=$_POST['days'];
+  $hour=$_POST['hours'];
+  $priority=$_POST['priorities'];
+  $text=$_POST['text'];  
+
+  $schedule[$hour][$day]=array('priority'=>$priority,'text'=>$text);
+
+  addTask($day,$hour,$priority,$text,$_SESSION['userid']);
+
 }
 
 ?>

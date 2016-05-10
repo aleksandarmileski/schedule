@@ -9,25 +9,15 @@ if (isset($_POST['get-user'])) {
   $_SESSION['userid'] = getUserId($username);
 }
 
-// $schedule=array();
-if (isset($_SESSION['value'])) {
-  $schedule=array();
-  $tasks=getTasks($_SESSION['userid']);
-  foreach ($tasks as $task) {
-    $schedule[$task['hour']][$task['day']]=array('priority'=>$task['priority'],'text'=>$task['context']);
+$tasks=getTasks($_SESSION['userid']);
+$schedule=array();
+for ($i=1; $i < 10 ; $i++) { 
+  for ($j=1; $j < 6; $j++) { 
+    $schedule[$i][$j]=array('priority'=>'','text'=>'');
   }
-  
-}else{
-  $tasks=getTasks($_SESSION['userid']);
-  $schedule=array();
-  for ($i=1; $i < 10 ; $i++) { 
-    for ($j=1; $j < 6; $j++) { 
-      $schedule[$i][$j]=array('priority'=>'','text'=>'');
-    }
-  }
-  foreach ($tasks as $task) {
-    $schedule[$task['hour']][$task['day']]=array('priority'=>$task['priority'],'text'=>$task['context']);
-  }
+}
+foreach ($tasks as $task) {
+  $schedule[$task['hour']][$task['day']]=array('priority'=>$task['priority'],'text'=>$task['context']);
 }
 
 if (isset($_POST['get-value'])) {
@@ -44,6 +34,8 @@ if (isset($_POST['get-value'])) {
 
 }
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +50,7 @@ if (isset($_POST['get-value'])) {
     <div class="row">
       <div class="col-lg-12 text-center">
         <h1><?php echo 'Welcome '.(isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest').'!'; ?>
-       </h1>
+        </h1>
         <p>___</p>
       </div>
     </div>
@@ -74,7 +66,7 @@ if (isset($_POST['get-value'])) {
           </div>
         </div>
         <div class="form-bottom">
-        <?php require 'formadmin.php'; ?>
+          <?php require 'formadmin.php'; ?>
           <?php require 'form.php'; ?>
         </div>
       </div>

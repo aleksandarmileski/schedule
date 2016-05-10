@@ -86,7 +86,7 @@
 	//GET tasks
 	function getTasks($user_id){
 		$conn=connection();
-		$query = $conn->prepare("SELECT * FROM tasks where user_id=".$user_id);
+		$query = $conn->prepare("SELECT * FROM tasks where user_id=".$user_id." ORDER BY id ASC");
 		$query->execute();
 		$result = $query;
 		return $result;
