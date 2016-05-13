@@ -13,7 +13,7 @@
 
   <!-- Custom CSS -->
   <style type="text/css">
-    
+
     tr,td{
       text-align: center;
     }
@@ -29,6 +29,17 @@
       text-align: center;
       padding: 8px 2px !important;
       border: 0px solid #ddd !important;
+    }
+    .updatef {
+      width: 10%;
+    }
+    .updateftext {
+      width: 30%;
+    }
+    .updatefbutton {
+      display: block;
+      margin-top: 5px;
+      width: 30%;
     }
   </style>
 

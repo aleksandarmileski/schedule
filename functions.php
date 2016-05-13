@@ -91,6 +91,24 @@
 		$result = $query;
 		return $result;
 	}
+	//GET tasks
+	function getTask($task_id){
+		$conn=connection();
+		$query = $conn->prepare("SELECT * FROM tasks where task_id=".$user_id." ORDER BY id ASC");
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
+	//UPDATE task
+	function updateTask($day,$hour,$priority,$text,$id){
+		$conn=connection();
+		// $query = $conn->prepare("UPDATE tasks SET day=".$day.", hour=".$hour.", priority=".$priority.", context=".$text." WHERE id=".$id);
+		$query = $conn->prepare("UPDATE tasks SET `day`='$day', `hour`='$hour', `priority`='$priority', `context`='$text' WHERE `id`='$id'");
+
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
 	// GET Users
 	function getUsers(){
 		$conn=connection();

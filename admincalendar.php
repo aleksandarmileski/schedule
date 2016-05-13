@@ -6,15 +6,17 @@ require 'functions.php';
 if ( !isset($_SESSION['userid']) || !getUserRole($_SESSION['userid'])==1) {
   header('Location: logout.php');  
 }
+$_SESSION['table_userid']=$_SESSION['userid'];
 
 $data = getUsers();
 if (isset($_POST['get-user'])) {
   $username = $_POST['users'];
-  $_SESSION['userid'] = getUserId($username);
-  // header("Location: #stable");
+  $_SESSION['table_userid'] = getUserId($username);
 }
 
-$tasks=getTasks($_SESSION['userid']);
+
+
+$tasks=getTasks($_SESSION['table_userid']);
 $schedule=array();
 for ($i=1; $i < 10 ; $i++) { 
   for ($j=1; $j < 6; $j++) { 
@@ -33,7 +35,7 @@ if (isset($_POST['get-value'])) {
 
   $schedule[$hour][$day]=array('priority'=>$priority,'text'=>$text);
 
-  addTask($day,$hour,$priority,$text,$_SESSION['userid']);
+  addTask($day,$hour,$priority,$text,$_SESSION['table_userid']);
 
   $_SESSION['value']=$schedule;
 
