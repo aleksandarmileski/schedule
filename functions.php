@@ -91,13 +91,47 @@
 		$result = $query;
 		return $result;
 	}
-// GET Users
+	// GET Users
 	function getUsers(){
 		$conn=connection();
 		$query = $conn->prepare("SELECT username FROM users");
 		$query->execute();
 		$result = $query;
 		return $result;
+	}
+	// DELETE Post
+	function deletePost($post_id){
+		$conn=connection();
+		$query = $conn->prepare("DELETE FROM tasks WHERE id=".$post_id);
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
+	//DISPLAY DAY
+	function get_day($day){
+		switch ($day) {
+			case 1: return 'Monday';	break;
+			case 2: return 'Tuesday';	break;
+			case 3: return 'Wednesday';	break;
+			case 4: return 'Thursday';	break;
+			case 5: return 'Friday';	break;
+			default: return false;		break;
+		}
+	}
+	//DISPLAY HOUR
+	function get_hour($hour){
+		switch ($hour) {
+			case 1: return '09:00-10:00'; break;
+			case 2: return '10:00-11:00'; break;
+			case 3: return '11:00-12:00'; break;
+			case 4: return '12:00-13:00'; break;
+			case 5: return '13:00-14:00'; break;
+			case 6: return '14:00-15:00'; break;
+			case 7: return '15:00-16:00'; break;
+			case 8: return '16:00-17:00'; break;
+			case 9: return '17:00-18:00'; break;			
+			default: return false; 	break;
+		}
 	}		
 
 ?>

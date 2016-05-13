@@ -7,6 +7,11 @@ if ( !isset($_SESSION['userid']) || !getUserRole($_SESSION['userid'])==0) {
   header('Location: logout.php');  
 }
 
+if (isset($_POST['postid'])) {
+  deletePost($_POST['postid']);
+  
+}
+
 $tasks=getTasks($_SESSION['userid']);
 $schedule=array();
 for ($i=1; $i < 10 ; $i++) { 
@@ -16,6 +21,7 @@ for ($i=1; $i < 10 ; $i++) {
 }
 foreach ($tasks as $task) {
   $schedule[$task['hour']][$task['day']]=array('priority'=>$task['priority'],'text'=>$task['context']);
+  // print_r($task);
 }
 
 if (isset($_POST['get-value'])) {
@@ -46,33 +52,58 @@ if (isset($_POST['get-value'])) {
   <div class="container">
 
     <ul class="nav nav-pills nav-justified">
-      <li class="active"><a data-toggle="pill" href="#stable">Add Task</a></li>
-      <li><a data-toggle="tab" href="#addtask">TimeTable</a></li>
+      <li ><a data-toggle="pill" href="#stable">Add Task</a></li>
+      <li class="active"><a data-toggle="tab" href="#addtask">Schedule</a></li>
+      <li><a data-toggle="tab" href="#viewtasks">View Tasks</a></li>
+      <li><a data-toggle="tab" href="#deletetasks">Delete Task</a></li>
     </ul>
 
     <div class="tab-content">
-      <div id="stable" class="tab-pane fade in active">
+      <div id="stable" class="tab-pane fade">
         <div class="text-center">
           <?php require 'form.php'; ?>
         </div>        
       </div>
-      <div id="addtask" class="tab-pane fade">
+      <div id="addtask" class="tab-pane fade in active">
         <div class="row">      
           <?php require 'table.php'; ?>
         </div>        
       </div>
+      <div id="viewtasks" class="tab-pane fade">
+        <ul class="list-group">
+          <?php
+          $taskovi=getTasks($_SESSION['userid']);
+          foreach ($taskovi as $task) { 
+            echo "<li class='list-group-item-".$task['priority']." list-group-item' >"." Day:".get_day($task['day'])." Hour:".get_hour($task['hour'])." Priority:".$task['priority']." Text:".$task['context']."</li>";
+          } ?>       
+        </ul>      
+      </div>
+      <div id="deletetasks" class="tab-pane fade">
+        <?php 
+        $taskovi=getTasks($_SESSION['userid']);
+        foreach ($taskovi as $task) : ?>
+        <div class="alert alert-<?php echo $task['priority']; ?>">
+          <a href="#" class="close" id="<?php echo $task['id']; ?>" data-dismiss="alert" aria-label="close" >&times;</a>
+          <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
+        </div>
+
+      <?php endforeach; ?>
     </div>
 
-  </div><!-- /.container -->
+    
+  </div>
 
-  <!-- jQuery Version 1.11.1 -->
-  <!-- <script src="js/jquery.js"></script> -->
+</div><!-- /.container -->
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="js/bootstrap.min.js"></script>
+<!-- jQuery Version 1.11.1 -->
+<!-- <script src="js/jquery.js"></script> -->
 
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-  <script src="js/index.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+<script src="js/index.js"></script>
 </body>
 </html>
