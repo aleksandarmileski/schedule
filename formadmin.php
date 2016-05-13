@@ -1,4 +1,4 @@
-<form role="form" action="" method="post" class="login-form">
+<form role="form" action="" method="post" class="login-form selUser">
 <fieldset>
   <legend><h1>CHOOSE USER</h1>
   <div class="form-group">

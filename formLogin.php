@@ -10,10 +10,10 @@ if (checkUser($username)) {
 		if (isset($_SESSION['value'])) {
 			unset($_SESSION['value']);
 		}
-		if (getUserRole($_SESSION['userid'])==0) {
-			header("Location: calendar.php"); 
+		if (getUserRole($_SESSION['userid'])==1) {
+			header("Location: admincalendar.php"); 			
 		}else{
-			header("Location: admincalendar.php"); 
+			header("Location: calendar.php"); 			
 		}
 	}else{
 		$_SESSION['errMessage'] = "Wrong password! Try again.";

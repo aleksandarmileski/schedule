@@ -10,7 +10,7 @@
 	margin: 5px 0 0 10px;
 }
 .topmargin {
-	margin-top: 10px;
+	margin: 10px auto;	
 }
 .bottommargin {
 	margin-bottom: 10px;
@@ -30,4 +30,13 @@ form legend h1{
 select option{
 	color: white;
 	background-color: #76b852;
+}
+
+.selUser {
+	float: right;
+	margin: 0px auto;
+}
+
+.addUserTask {
+	float: left;
 }

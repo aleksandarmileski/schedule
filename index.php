@@ -43,8 +43,10 @@ try {
 
 
 <body>
-
-  <div class="login-page">
+  <div >
+    <h1 class="textlogo">SCHEDULE</h1>
+  </div>
+  <div class="login-page customlfp">
     <div class="form">
       <form action="" method="post" class="register-form">
         <input type="text" placeholder="Enter Username" name="form-username" id="form-username"/>

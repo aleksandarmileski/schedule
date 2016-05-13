@@ -3,7 +3,9 @@
 session_start();
 require 'functions.php';
 
-
+if ( !isset($_SESSION['userid']) || !getUserRole($_SESSION['userid'])==0) {
+  header('Location: logout.php');  
+}
 
 $tasks=getTasks($_SESSION['userid']);
 $schedule=array();
@@ -38,18 +40,29 @@ if (isset($_POST['get-value'])) {
 <body>
   <div class="text-center customheader">
     <h1 class="leftalign"><?php echo 'Welcome '.(isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest').'!'; ?></h1>
-    <p class="rightalign"><a href="index.php">Logout</a></p>             
+    <p class="rightalign"><a href="logout.php">Logout</a></p>             
   </div>
   <!-- Page Content -->
   <div class="container">
-    
-    <div class="text-center">
-      <?php require 'form.php'; ?>
+
+    <ul class="nav nav-pills nav-justified">
+      <li class="active"><a data-toggle="pill" href="#stable">Add Task</a></li>
+      <li><a data-toggle="tab" href="#addtask">TimeTable</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="stable" class="tab-pane fade in active">
+        <div class="text-center">
+          <?php require 'form.php'; ?>
+        </div>        
+      </div>
+      <div id="addtask" class="tab-pane fade">
+        <div class="row">      
+          <?php require 'table.php'; ?>
+        </div>        
+      </div>
     </div>
-    <div class="row">
-      
-      <?php require 'table.php'; ?>
-    </div>
+
   </div><!-- /.container -->
 
   <!-- jQuery Version 1.11.1 -->

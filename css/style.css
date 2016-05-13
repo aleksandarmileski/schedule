@@ -10,7 +10,7 @@
   z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
-  margin: 0 auto 100px;
+  margin: 0 auto 10px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -103,3 +103,14 @@ select option{
   width: 100%;
 }
 
+.textlogo {
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 5em;
+  margin-bottom: 0;
+}
+
+.customlfp {
+  padding: 30px;
+}

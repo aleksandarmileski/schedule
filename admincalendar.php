@@ -3,10 +3,15 @@
 session_start();
 require 'functions.php';
 
+if ( !isset($_SESSION['userid']) || !getUserRole($_SESSION['userid'])==1) {
+  header('Location: logout.php');  
+}
+
 $data = getUsers();
 if (isset($_POST['get-user'])) {
   $username = $_POST['users'];
   $_SESSION['userid'] = getUserId($username);
+  // header("Location: #stable");
 }
 
 $tasks=getTasks($_SESSION['userid']);
@@ -50,14 +55,24 @@ if (isset($_POST['get-value'])) {
   </div>
   <!-- Page Content -->
   <div class="container">
-    
-    <div class="text-center">
-      <?php require 'formadmin.php'; ?>
+
+    <ul class="nav nav-pills nav-justified">
+      <li><a data-toggle="tab" href="#addtask">TimeTable</a></li>
+      <li ><a data-toggle="pill" href="#stable">Add Task</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="stable" class="tab-pane fade  ">
+        <div class="text-center">
       <?php require 'form.php'; ?>
-    </div>
-    
-    <div class="row">
-      <?php require 'table.php'; ?>
+    </div>      
+      </div>
+      <div id="addtask" class="tab-pane fade in active">
+        <div class="row text-center">
+          <?php require 'formadmin.php'; ?>
+          <?php require 'table.php'; ?>
+        </div>        
+      </div>
     </div>
   </div><!-- /.container -->
 
