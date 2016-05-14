@@ -46,6 +46,18 @@
       color: red;
       float: right;
     }
+    @media screen and (max-width:760px){
+       .updatef {
+          width: 32%;
+          margin-bottom: 5px;
+        }
+        .updateftext {
+          width: 100%;
+        }
+        .updatefbutton {
+          width: 100%;
+        }
+    }
   </style>
 
   <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
