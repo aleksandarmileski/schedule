@@ -45,7 +45,7 @@
       font-size: 1.5em;
       color: red;
       float: right;
-    }
+    }    
     @media screen and (max-width:760px){
        .updatef {
           width: 32%;

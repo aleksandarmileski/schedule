@@ -114,3 +114,7 @@ select option{
 .customlfp {
   padding: 30px;
 }
+.errorce{
+  color: red;
+  font-weight: 600;
+}

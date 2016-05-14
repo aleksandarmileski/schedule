@@ -62,7 +62,7 @@ try {
         <p class="message">Not registered? <a href="#">Create an account</a></p>
       </form>
       <?php if (isset($_SESSION['errMessage'])): ?>
-        <p><?php echo $_SESSION['errMessage']; ?></p>
+        <p class="errorce"><?php echo $_SESSION['errMessage']; ?></p>
       <?php endif ?>
     </div>
   </div>
