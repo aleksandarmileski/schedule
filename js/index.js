@@ -23,3 +23,14 @@ $('.userclose').click(function(){
 		window.location.href = window.location.href;
 	});
 });
+
+$('.delUser').click(function(){
+	var id=$(this).attr('id');
+
+	console.log('deleting user with id: '+id);
+
+	$.post('admincalendar.php',{deletedUser: id}, function(){
+		console.log('user deleted');
+		window.location.href = window.location.href;
+	});
+});

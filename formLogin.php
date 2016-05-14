@@ -1,7 +1,7 @@
 <?php
 
-$username = $_POST['form-username'];
-$password = $_POST['form-password'];
+$username = htmlspecialchars($_POST['form-username']);
+$password = htmlspecialchars($_POST['form-password']);
 
 if (checkUser($username)) {
 	if (checkPassword($username,$password)) {

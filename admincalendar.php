@@ -12,13 +12,23 @@ if (isset($_POST['postid'])) {
 
 $_SESSION['table_userid']=$_SESSION['userid'];
 
+if (isset($_POST['deletedUser'])) {
+  deletePosts($_POST['deletedUser']);
+  deleteUser($_POST['deletedUser']);
+}
+
 if (isset($_POST['update-value'])) {
   $day=$_POST['update-days'];
   $hour=$_POST['update-hours'];
   $priority=$_POST['update-priorities'];
-  $text=$_POST['update-text'];
+  $text=htmlspecialchars($_POST['update-text']);
   
   updateTask($day,$hour,$priority,$text,$_POST['update-value']);
+}
+
+if (isset($_POST['make-admin'])) {
+  $pid=$_POST['users-admin'];
+  makeAdmin($pid);
 }
 
 $data = getUsers();
@@ -31,7 +41,7 @@ if (isset($_POST['get-value'])) {
   $day=$_POST['admin-days'];
   $hour=$_POST['admin-hours'];
   $priority=$_POST['admin-priorities'];
-  $text=$_POST['admin-text'];
+  $text=htmlspecialchars($_POST['admin-text']);
   $user=$_POST['add-users'];
 
   $schedule[$hour][$day]=array('priority'=>$priority,'text'=>$text);
@@ -73,6 +83,8 @@ foreach ($tasks as $task) {
       <li ><a data-toggle="pill" href="#addtask">Add Task</a></li>
       <li><a data-toggle="tab" href="#updatetasks">Update Tasks</a></li>
       <li><a data-toggle="tab" href="#deletetasks">Delete Task</a></li>
+      <li><a data-toggle="tab" href="#makeadmin">Make Admin</a></li>
+      <li><a data-toggle="tab" href="#deleteuser">Delete User</a></li>
     </ul>
 
     <div class="tab-content">
@@ -109,28 +121,47 @@ foreach ($tasks as $task) {
               </div>
             </div>
           </div>
-          <?php endforeach; ?>
-
-        </div>
-      </div>
-
-
-      <div id="deletetasks" class="tab-pane fade">
-        <?php 
-        $taskovi=getAdminTasks();
-        foreach ($taskovi as $task) : ?>
-
-        <div class="alert alert-<?php echo $task['priority']; ?>">
-          <a href="" class="adminclose" id="<?php echo $task['id']; ?>" data-dismiss="alert" aria-label="close" ><strong class="del">DELETE</strong></a>
-          <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
-        </div>
-
         <?php endforeach; ?>
+
+      </div>
+    </div>
+
+
+    <div id="deletetasks" class="tab-pane fade">
+      <?php 
+      $taskovi=getAdminTasks();
+      foreach ($taskovi as $task) : ?>
+
+      <div class="alert alert-<?php echo $task['priority']; ?>">
+        <a href="" class="adminclose" id="<?php echo $task['id']; ?>" data-dismiss="alert" aria-label="close" ><strong class="del">DELETE</strong></a>
+        <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
       </div>
 
-
-
+    <?php endforeach; ?>
   </div>
+
+  <div id="makeadmin" class="tab-pane fade">
+    <div class="row text-center">
+      <?php include 'makeadmin.php'; ?>          
+    </div>
+  </div>
+  <div id="deleteuser" class="tab-pane fade">
+    <div class="row">
+      <?php 
+      $users=getUsers();
+      foreach ($users as $user) : ?>
+      <a href="" class="delUser" id="<?php echo $user['id']; ?>">
+      <div class="col-sm-6" >
+        <div class="col-sm-12 well vertical-center" >
+          <p class="text-center"><?php echo $user['username']; ?></p>
+        </div>  
+      </div>
+      </a>
+    <?php endforeach; ?>    
+  </div>
+</div>
+
+</div>
 </div><!-- /.container -->
 
 

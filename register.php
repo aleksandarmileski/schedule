@@ -6,8 +6,8 @@ try {
 	$conn=connection();
 	 
 	if (isset($_POST['formSignup'])) {
-		$tempUsername=$_POST['form-username'];
-		$tempPassword=$_POST['form-password'];
+		$tempUsername=htmlspecialchars($_POST['form-username']);
+		$tempPassword=htmlspecialchars($_POST['form-password']);
 
 		$exists=checkUser($tempUsername);
 

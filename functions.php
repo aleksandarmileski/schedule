@@ -122,10 +122,40 @@
 		$result = $query;
 		return $result;
 	}
+	function getBasicUsers(){
+		$conn=connection();
+		$query = $conn->prepare("SELECT * FROM users INNER JOIN roles ON users.role_type=roles.id WHERE roles.id=0");
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
+	function makeAdmin($id){
+		$conn=connection();
+		$query = $conn->prepare("UPDATE users SET `role_type`=1 WHERE `id`='$id'");
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
 	// DELETE Post
 	function deletePost($post_id){
 		$conn=connection();
 		$query = $conn->prepare("DELETE FROM tasks WHERE id=".$post_id);
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
+	// DELETE Posts
+	function deletePosts($user_id){
+		$conn=connection();
+		$query = $conn->prepare("DELETE tasks FROM tasks INNER JOIN users ON tasks.user_id=users.id WHERE users.id=".$user_id);
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
+	//DELETE User
+	function deleteUser($user_id){
+		$conn=connection();
+		$query = $conn->prepare("DELETE FROM users WHERE id=".$user_id);
 		$query->execute();
 		$result = $query;
 		return $result;

@@ -14,7 +14,7 @@ if (isset($_POST['update-value'])) {
   $day=$_POST['update-days'];
   $hour=$_POST['update-hours'];
   $priority=$_POST['update-priorities'];
-  $text=$_POST['update-text'];
+  $text=htmlspecialchars($_POST['update-text']);
   
   updateTask($day,$hour,$priority,$text,$_POST['update-value']);
 }
@@ -35,7 +35,7 @@ if (isset($_POST['get-value'])) {
   $day=$_POST['days'];
   $hour=$_POST['hours'];
   $priority=$_POST['priorities'];
-  $text=$_POST['text'];  
+  $text=htmlspecialchars($_POST['text']);  
 
   $schedule[$hour][$day]=array('priority'=>$priority,'text'=>$text);
 
