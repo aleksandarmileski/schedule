@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2016 at 01:58 AM
+-- Generation Time: May 14, 2016 at 09:23 AM
 -- Server version: 5.7.9
 -- PHP Version: 7.0.6RC1
 
@@ -57,17 +57,25 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=233 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`id`, `day`, `context`, `priority`, `hour`, `user_id`) VALUES
-(37, 2, 'a', 'success', 1, 10),
-(38, 5, 'almost over', 'success', 1, 10),
-(39, 1, 'new week starts now :(', 'danger', 1, 10),
-(40, 1, 'one down, four to go.', 'success', 9, 10);
+(46, 2, 'work', 'danger', 4, 10),
+(49, 3, 'sreda bzzz', 'danger', 4, 8),
+(51, 5, 'few more hours', 'danger', 6, 8),
+(58, 3, 'bzz', 'danger', 4, 8),
+(59, 4, 'last sprint', 'success', 1, 8),
+(61, 2, 'CL 1/2 finals', 'info', 9, 8),
+(63, 5, 'bbb', 'success', 1, 8),
+(191, 1, 'monday down 4 to go', 'success', 9, 10),
+(194, 4, 'two more days to go', 'info', 1, 10),
+(195, 3, 'big bug discovered', 'danger', 1, 10),
+(196, 4, 'bug successfully solved', 'info', 5, 10),
+(172, 3, 'JQuerry time', 'success', 9, 10);
 
 -- --------------------------------------------------------
 
@@ -83,18 +91,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_type` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `role_type` (`role_type`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role_type`) VALUES
-(1, 'root', 'root', 0),
-(11, 'marjan', 'macko', 0),
-(10, 'ace', 'ace', 0),
-(9, 'risto', 'risto', 0),
-(8, 'pece', 'pece', 0);
+(10, 'ace', 'ace', 1),
+(8, 'pece', 'pece', 0),
+(12, 'admin', 'admin', 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
