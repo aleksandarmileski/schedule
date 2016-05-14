@@ -41,6 +41,11 @@
       margin-top: 5px;
       width: 30%;
     }
+    .del {
+      font-size: 1.5em;
+      color: red;
+      float: right;
+    }
   </style>
 
   <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>

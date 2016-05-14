@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 require 'functions.php';
 
@@ -86,35 +85,36 @@ if (isset($_POST['get-value'])) {
           foreach ($taskovi as $task) : ?>
           <div class="panel panel-<?php echo $task['priority']; ?>">
             <div class="panel-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $task['id']; ?>">
-              <h4 class="panel-title">
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#<?php echo $task['id']; ?>">
+                <h4 class="panel-title">
                   <?php echo $task['context']; ?>
-              </h4>
-                </a>
+                </h4>
+              </a>
             </div>
             <div id="<?php echo $task['id']; ?>" class="panel-collapse collapse">
               <div class="panel-body">
                 <?php include 'updateform.php'; ?>
+              </div>
             </div>
           </div>
-        </div>
+        <?php endforeach; ?>
+
+
+      </div>
+
+    </div>
+    <div id="deletetasks" class="tab-pane fade">
+      <?php 
+      $taskovi=getTasks($_SESSION['userid']);
+      foreach ($taskovi as $task) : ?>
+
+      <div class="alert alert-<?php echo $task['priority']; ?>">
+        <a href="#" class="userclose" id="<?php echo $task['id']; ?>" data-dismiss="alert" aria-label="close" ><strong class="del">DELETE</strong></a>
+        <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
+      </div>
+
       <?php endforeach; ?>
-
-
     </div>
-
-  </div>
-  <div id="deletetasks" class="tab-pane fade">
-    <?php 
-    $taskovi=getTasks($_SESSION['userid']);
-    foreach ($taskovi as $task) : ?>
-    <div class="alert alert-<?php echo $task['priority']; ?>">
-      <a href="#" class="close" id="<?php echo $task['id']; ?>" data-dismiss="alert" aria-label="close" >&times;</a>
-      <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
-    </div>
-
-  <?php endforeach; ?>
-</div>
 
 
 </div>

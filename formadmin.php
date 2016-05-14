@@ -3,7 +3,9 @@
   <legend><h1>CHOOSE USER</h1>
   <div class="form-group">
     <select class="selectpicker" name="users">
-    <?php foreach ($data as $user) {
+    <?php 
+    $data = getUsers();
+    foreach ($data as $user) {
     	echo "<option value=".$user['username'].">".$user['username']."</option>";
     }
     ?>

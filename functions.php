@@ -82,7 +82,6 @@
 		}
 		$conn=null;
 	}
-
 	//GET tasks
 	function getTasks($user_id){
 		$conn=connection();
@@ -99,12 +98,18 @@
 		$result = $query;
 		return $result;
 	}
+	//GET tasks
+	function getAdminTasks(){
+		$conn=connection();
+		$query = $conn->prepare("SELECT * FROM tasks");
+		$query->execute();
+		$result = $query;
+		return $result;
+	}
 	//UPDATE task
 	function updateTask($day,$hour,$priority,$text,$id){
 		$conn=connection();
-		// $query = $conn->prepare("UPDATE tasks SET day=".$day.", hour=".$hour.", priority=".$priority.", context=".$text." WHERE id=".$id);
 		$query = $conn->prepare("UPDATE tasks SET `day`='$day', `hour`='$hour', `priority`='$priority', `context`='$text' WHERE `id`='$id'");
-
 		$query->execute();
 		$result = $query;
 		return $result;
@@ -112,7 +117,7 @@
 	// GET Users
 	function getUsers(){
 		$conn=connection();
-		$query = $conn->prepare("SELECT username FROM users");
+		$query = $conn->prepare("SELECT * FROM users");
 		$query->execute();
 		$result = $query;
 		return $result;
