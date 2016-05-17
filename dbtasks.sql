@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role_type`) VALUES
-(10, 'ace', 'ace', 1),
+(10, 'ace', 'ace', 0),
 (8, 'pece', 'pece', 0),
 (12, 'admin', 'admin', 1);
 

@@ -48,7 +48,6 @@ if (isset($_POST['get-value'])) {
 
   addTask($day,$hour,$priority,$text,$user);
   $_SESSION['table_userid']=$user;
-  $_SESSION['value']=$schedule;
 
 }
 
@@ -92,6 +91,7 @@ foreach ($tasks as $task) {
         <div class="text-center">
 
           <?php include 'addformadmin.php'; ?>
+          
         </div>      
       </div>
       <div id="stable" class="tab-pane fade in active">
