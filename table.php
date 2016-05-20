@@ -1,3 +1,15 @@
+<?php
+$schedule=array();
+$tasks=getTasks($_SESSION['userid']);
+for ($i=1; $i < 10 ; $i++) {
+	for ($j=1; $j < 6; $j++) {
+		$schedule[$i][$j]=array('priority'=>'','text'=>'');
+	}
+}
+foreach ($tasks as $task) {
+	$schedule[$task['hour']][$task['day']]=array('priority'=>$task['priority'],'text'=>$task['context']);
+}
+?>
 <table class="table">
 	<thead>
 		<tr>

@@ -22,6 +22,6 @@
     <option value="success" <?php echo ($task['priority']=='success') ? 'selected' : ''; ?>>Success</option>
     <option value="info" <?php echo ($task['priority']=='info') ? 'selected' : ''; ?>>Info</option>
   </select>
-  <input  type="text" class="form-text form-control updateftext" id="form-text" name="update-text" placeholder="<?php echo $task['context']; ?>">
+  <input  type="text" class="form-text form-control updateftext" id="form-text" name="update-text" value="<?php echo $task['context']; ?>">
   <button type="submit" class="btn bottommargin updatefbutton" name="update-value" value="<?php echo $task['id']; ?>" >Update Task</button>
 </form>

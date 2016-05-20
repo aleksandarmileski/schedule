@@ -4,11 +4,11 @@
 	function connection(){
 		$servername = "localhost";
 		$username = "root";
-		$password = "root";
+		$password = "";
 		$dbname = "dbtasks";
 
 		try {
-			$conn = new PDO("mysql:host={$servername};dbname={$dbname};port=3307",$username,$password);
+			$conn = new PDO("mysql:host={$servername};dbname={$dbname}",$username,$password);
 			$conn->setAttribute(
 				PDO::ATTR_ERRMODE, 
 				PDO::ERRMODE_EXCEPTION);
@@ -93,7 +93,7 @@
 	//GET tasks
 	function getTask($task_id){
 		$conn=connection();
-		$query = $conn->prepare("SELECT * FROM tasks where task_id=".$user_id." ORDER BY id ASC");
+		$query = $conn->prepare("SELECT * FROM tasks where task_id=".$task_id." ORDER BY id ASC");
 		$query->execute();
 		$result = $query;
 		return $result;
@@ -185,6 +185,25 @@
 			case 9: return '17:00-18:00'; break;			
 			default: return false; 	break;
 		}
-	}		
+	}
+	//ADDING TASK LOGIC
+	function addLogic($day,$hour,$priority,$text,$userid){
+
+		$tasks=getTasks($userid);
+		$goIma=false;
+		foreach ($tasks as $task){
+			if ($day==$task['day'] && $hour==$task['hour'] && $priority==$task['priority'] && $text==$task['context']){
+				$goIma=true;
+			}
+		}
+		if (!$goIma){
+			addTask($day,$hour,$priority,$text,$userid);
+		}
+
+	}
+	//UPDATING TASK LOGIC
+	function updateLogic($day,$hour,$priority,$text,$taskid){
+		updateTask($day,$hour,$priority,$text,$taskid);
+	}
 
 ?>

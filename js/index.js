@@ -1,36 +1,39 @@
-$('.message a').click(function(){
-	$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
+$( document ).ready(function() {
+	$('.message a').click(function(){
+		$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+	});
 
-$('.adminclose').click(function(){
-	var id=$(this).attr('id');
+	$('.adminclose').click(function(){
+		var id=$(this).attr('id');
 
-	console.log('deleting post with id: '+id);
+		console.log('deleting post with id: '+id);
 
-	$.post('admincalendar.php',{postid: id}, function(){
-		console.log('post deleted');
-		window.location.href = window.location.href;
+		$.post('admincalendar.php',{postid: id}, function(){
+			console.log('post deleted');
+			window.location.href = window.location.href;
+		});
+	});
+
+	$('.userclose').click(function(){
+		var id=$(this).attr('id');
+
+		console.log('deleting post with id: '+id);
+
+		$.post('calendar.php',{postid: id}, function(){
+			console.log('post deleted');
+			window.location.href = window.location.href;
+		});
+	});
+
+	$('.delUser').click(function(){
+		var id=$(this).attr('id');
+
+		console.log('deleting user with id: '+id);
+
+		$.post('admincalendar.php',{deletedUser: id}, function(){
+			console.log('user deleted');
+			window.location.href = window.location.href;
+		});
 	});
 });
 
-$('.userclose').click(function(){
-	var id=$(this).attr('id');
-
-	console.log('deleting post with id: '+id);
-
-	$.post('calendar.php',{postid: id}, function(){
-		console.log('post deleted');
-		window.location.href = window.location.href;
-	});
-});
-
-$('.delUser').click(function(){
-	var id=$(this).attr('id');
-
-	console.log('deleting user with id: '+id);
-
-	$.post('admincalendar.php',{deletedUser: id}, function(){
-		console.log('user deleted');
-		window.location.href = window.location.href;
-	});
-});
