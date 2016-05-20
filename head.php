@@ -7,58 +7,10 @@
   <meta name="author" content="">
 
   <title>Calendar</title>
-
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Custom CSS -->
-  <style type="text/css">
-
-    tr,td{
-      text-align: center;
-    }
-
-    td{
-      border: 1px solid #ddd !important;
-    }
-    .hour{
-      background: #76b852;
-      color: white;
-      letter-spacing: 1.5px;
-      font-weight: bold;
-      text-align: center;
-      padding: 8px 2px !important;
-      border: 0px solid #ddd !important;
-    }
-    .updatef {
-      width: 10%;
-    }
-    .updateftext {
-      width: 30%;
-    }
-    .updatefbutton {
-      display: block;
-      margin-top: 5px;
-      width: 30%;
-    }
-    .del {
-      font-size: 1.5em;
-      color: red;
-      float: right;
-    }    
-    @media screen and (max-width:760px){
-       .updatef {
-          width: 32%;
-          margin-bottom: 5px;
-        }
-        .updateftext {
-          width: 100%;
-        }
-        .updatefbutton {
-          width: 100%;
-        }
-    }
-  </style>
+  <link rel="stylesheet" href="css/headstyle.css">
 
   <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
   <link href="css/calstyle.css" rel="stylesheet">

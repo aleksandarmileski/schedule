@@ -43,7 +43,18 @@
 	  }
 	  return false;
 	}
-
+	//register user
+	function registerUser($username,$password){
+		$conn=connection();
+		try {
+			$conn=connection();
+			$inputSql="INSERT INTO users (`username`,`password`) VALUES ('$username','$password')";
+			$conn->exec($inputSql);
+		} catch (Exception $e) {
+			echo $inputSql . "<br>" . $e->getMessage();
+		}
+		$conn=null;
+	}
 	//check password for user, return true if exists, false otherwise
 	function checkPassword($checkUsername,$checkPassword){
 		$conn=connection();		
@@ -90,7 +101,7 @@
 		$result = $query;
 		return $result;
 	}
-	//GET tasks
+	//GET task
 	function getTask($task_id){
 		$conn=connection();
 		$query = $conn->prepare("SELECT * FROM tasks where task_id=".$task_id." ORDER BY id ASC");

@@ -1,23 +1,17 @@
-<?php 
+<?php
 
-$tempUsername=$_POST['form-username'];
-$tempPassword=$_POST['form-password'];
+//Take username and password
+$tempUsername= htmlspecialchars($_POST['form-username']);
+$tempPassword= htmlspecialchars($_POST['form-password']);
 
-$exists=checkUser($tempUsername);
-
-if (!$exists) {
-	if ($_POST['form-password']==$_POST['form-password1']&&
-		$_POST['form-password']!="") {
-        //successfull input
-		$conn=connection();
-	$inputSql="INSERT INTO users (`username`,`password`)
-	VALUES ('$tempUsername','$tempPassword')";
-	$conn->exec($inputSql);
-	header("Location: index.php");
-}else{
-	$_SESSION['errMessage'] = "Enter the same password twice.";
-}
-}else{
+if (!checkUser($tempUsername)) { //Check existance of the user
+	if ( $_POST['form-password']==$_POST['form-password1'] && $_POST['form-password']!="") { //Successfull data input
+		registerUser($tempUsername,$tempPassword); //Register user in database
+		header("Location: index.php");
+	}else{ //Invalid password input or the password is empty
+		$_SESSION['errMessage'] = "Enter the same password twice.";
+	}
+}else{ //Username already taken
 	$_SESSION['errMessage'] = "Username already taken! Enter diferent username.";
 }
 
