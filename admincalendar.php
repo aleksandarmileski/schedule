@@ -33,7 +33,6 @@ if (isset($_POST['make-admin'])) {
 }
 
 //Get users
-$data = getUsers();
 if (isset($_POST['get-user'])) {
     $username = $_POST['users'];
     $_SESSION['table_userid'] = getUserId($username);
