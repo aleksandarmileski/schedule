@@ -14,7 +14,8 @@ if (isset($_POST['postid'])) {
 
 //Updating task
 if (isset($_POST['update-value'])) {
-    updateLogic($_POST['update-days'], $_POST['update-hours'], $_POST['update-priorities'], htmlspecialchars($_POST['update-text']), $_POST['update-value']);
+    $useridFromTaskID=getUserIdByTask($_POST['update-value']);
+    updateLogic($_POST['update-days'], $_POST['update-hours'], $_POST['update-priorities'], htmlspecialchars($_POST['update-text']), $useridFromTaskID, $_POST['update-value']);
 }
 
 //Adding task
