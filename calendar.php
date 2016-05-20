@@ -39,14 +39,5 @@ if (isset($_POST['get-value'])) {
     <?php include 'userTabs.php'; ?>
 </div><!-- /.container -->
 
-<<<<<<< HEAD
-=======
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-<script src="js/index.js"></script>
->>>>>>> 6ca5311c94d307c5f39d4ac505af35040c808531
 </body>
 </html>
