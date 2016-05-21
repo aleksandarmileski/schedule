@@ -295,18 +295,19 @@ function updateLogic($day, $hour, $priority, $text, $userid, $taskid)
 {
     $tasks = getTasks($userid);
     $goIma = false;
+    $deletedTaskID=0;
     foreach ($tasks as $task) {
         if ($day == $task['day'] && $hour == $task['hour']) {
             $goIma = true;
             $deletedTaskID=$task['id'];
         }
     }
-    if($goIma){
+    if($goIma && $taskid!=$deletedTaskID){
+        echo "go ima: ".$deletedTaskID;
         deletePost($deletedTaskID);
-        updateTask($day, $hour, $priority, $text, $taskid);
-    }else{
-        updateTask($day, $hour, $priority, $text, $taskid);
     }
+    updateTask($day, $hour, $priority, $text, $taskid);
+
 }
 
 ?>
