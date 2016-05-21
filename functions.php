@@ -117,7 +117,7 @@ function addTask($day, $hour, $priority, $text, $userid)
 function getTasks($user_id)
 {
     $conn = connection();
-    $query = $conn->prepare("SELECT * FROM tasks where user_id=" . $user_id . " ORDER BY id ASC");
+    $query = $conn->prepare("SELECT * FROM tasks WHERE user_id=".$user_id);
     $query->execute();
     $result = $query;
     return $result;
@@ -185,7 +185,7 @@ function makeAdmin($id)
 function deletePost($post_id)
 {
     $conn = connection();
-    $query = $conn->prepare("DELETE FROM tasks WHERE id=" . $post_id);
+    $query = $conn->prepare("DELETE FROM tasks WHERE id=".$post_id);
     $query->execute();
     $result = $query;
     return $result;
@@ -291,7 +291,7 @@ function addLogic($day, $hour, $priority, $text, $userid)
 }
 
 //UPDATING TASK LOGIC
-function updateLogic($day, $hour, $priority, $text,$userid,$taskid)
+function updateLogic($day, $hour, $priority, $text, $userid, $taskid)
 {
     $tasks = getTasks($userid);
     $goIma = false;
