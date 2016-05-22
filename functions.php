@@ -82,6 +82,15 @@ function getUserId($username)
     }
 }
 
+//GET UserName
+function getUserName($userID)
+{
+    $conn = connection();
+    foreach ($conn->query("SELECT username FROM users WHERE `id`='$userID'") as $row) {
+        return $row['username'];
+    }
+}
+
 //GET User ID
 function getUserIdByTask($taskid)
 {
@@ -113,6 +122,20 @@ function addTask($day, $hour, $priority, $text, $userid)
     $conn = null;
 }
 
+//Count tasks
+function countTasks($user_id)
+{
+    $conn = connection();
+    foreach ($conn->query("SELECT COUNT(*) as br FROM tasks WHERE user_id=".$user_id) as $row) {
+        return $row['br'];
+    }
+//    $conn = connection();
+//    $query = $conn->prepare("SELECT COUNT(*) as br FROM tasks WHERE user_id=".$user_id);
+//    $query->execute();
+//    $result = $query;
+//    return $result;
+}
+
 //GET tasks
 function getTasks($user_id)
 {
@@ -127,7 +150,7 @@ function getTasks($user_id)
 function getTask($task_id)
 {
     $conn = connection();
-    $query = $conn->prepare("SELECT * FROM tasks where task_id=" . $task_id . " ORDER BY id ASC");
+    $query = $conn->prepare("SELECT * FROM WHERE where task_id=" . $task_id . " ORDER BY id ASC");
     $query->execute();
     $result = $query;
     return $result;

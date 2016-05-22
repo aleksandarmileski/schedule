@@ -40,13 +40,35 @@ $( document ).ready(function() {
 		html: true,
 		title:function(){
 			var taskname=$(this).attr('tnm');
-			var taskpriority=$(this).attr('tpr'); var priority;
-			return '<div ><h3 class="bg-'+taskpriority+'">'+taskname+'</h3></div>';
+			var taskpriority=$(this).attr('tpr');
+			return '<div ><h3 class="bg-'+taskpriority+' text-center">'+taskname+'</h3></div>';
 		},
 		content:function(){
-			return "<form action='calendar.php' method='post' ><button class='bg-info' name='popoversetbutton'>Update</button><button class='bg-danger' name='popoversetbutton'>Delete</button></form>";
+			var taskday=$(this).attr('tday');
+			var taskhour=$(this).attr('thour');
+			var taskpriority=$(this).attr('tpr');
+			var taskowner=$(this).attr('tuid');
+
+			return " Task Owner: "+taskowner+"<br>"+
+				"Task Day: " +taskday+"<br>"+
+				" Task Hour: "+taskhour+"<br>"+
+				" Task Priority: "+taskpriority;
+
+			// return "<form action='calendar.php' method='post' >" +
+			// 	"<select class='updatef' name='popover-days' >" +
+			// 		"<option value='1' selected>Monday</option>"+
+			// 		"<option value='2' <?php echo ("+taskday+"=='2') ? 'selected' : ''; ?>>Tuesday</option>"+
+			// 		"<option value='3' <?php echo ("+taskday+"=='3') ? 'selected' : ''; ?>>Wednesday</option>"+
+			// 		"<option value='4' <?php echo ("+taskday+"=='4') ? 'selected' : ''; ?>>Thursday</option>"+
+			// 		"<option value='5' <?php echo ("+taskday+"=='5') ? 'selected' : ''; ?>>Friday</option>"+
+			// 	"</select>"+
+			// 	"<button class='bg-info' name='popoversetbutton'>Update</button>" +
+			// 	"<button class='bg-danger' name='popoversetbutton'>Delete</button>" +
+			// 	"</form>";
+			
 		}
 	});
+	
 	
 });
 

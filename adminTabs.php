@@ -56,7 +56,7 @@
 
             <div class="alert alert-<?php echo $task['priority']; ?>">
                 <a href="" class="adminclose" id="<?php echo $task['id']; ?>" data-dismiss="alert"
-                   aria-label="close"><strong class="del">DELETE</strong></a>
+                   aria-label="close"><span class="glyphicon glyphicon-remove-sign del" aria-hidden="true"></span></a>
                 <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
             </div>
 
@@ -72,11 +72,11 @@
         <div class="row">
             <?php
             $users = getUsers();
-            foreach ($users as $user) : ?>
+            foreach ($users as $user) :?>
                 <a href="" class="delUser" id="<?php echo $user['id']; ?>">
                     <div class="col-sm-6">
                         <div class="col-sm-12 well vertical-center">
-                            <p class="text-center"><?php echo $user['username']; ?></p>
+                            <p class="text-center"><?php echo $user['username']; ?><span class="badge"><?php echo countTasks($user['id']);?></span></p>
                         </div>
                     </div>
                 </a>

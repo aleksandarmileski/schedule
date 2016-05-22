@@ -51,7 +51,7 @@
 
             <div class="alert alert-<?php echo $task['priority']; ?>">
                 <a href="#" class="userclose" id="<?php echo $task['id']; ?>" data-dismiss="alert"
-                   aria-label="close"><strong class="del">DELETE</strong></a>
+                   aria-label="close"><span class="glyphicon glyphicon-remove-sign del" aria-hidden="true"></span></a>
                 <strong><?php echo $task['context']; ?></strong> <?php echo get_day($task['day']); ?> <?php echo get_hour($task['hour']); ?>
             </div>
 
