@@ -35,7 +35,7 @@
     </div>
     <div class="form-group text-center">
       <label class="sr-only" for="form-text">Task Name:</label>
-      <input type="text" class="form-text form-control" id="form-text" name="text" placeholder="Enter Task Text">
+      <input type="text" class="form-text form-control" id="form-text" name="text" placeholder="Enter Task Text" required>
     </div>
     <button type="submit" class="btn bottommargin" name="get-value" >Add Task</button>
   </legend>

@@ -10,6 +10,7 @@
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/navStyle.css">
   <link rel="stylesheet" href="css/headstyle.css">
 
   <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>

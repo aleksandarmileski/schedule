@@ -302,14 +302,14 @@ function addLogic($day, $hour, $priority, $text, $userid)
 
     $tasks = getTasks($userid);
     $goIma = false;
+    $zaBrishenje=false;
+    $brishiTaskID=0;
     foreach ($tasks as $task) {
-        if ($day == $task['day'] && $hour == $task['hour'] && $priority == $task['priority'] && $text == $task['context']) {
-            $goIma = true;
-        }
+        if ($day == $task['day'] && $hour == $task['hour'] && $priority == $task['priority'] && $text == $task['context']) {$goIma = true;}
+        if ($day == $task['day'] && $hour == $task['hour']){$zaBrishenje=true;$brishiTaskID=$task['id'];}
     }
-    if (!$goIma) {
-        addTask($day, $hour, $priority, $text, $userid);
-    }
+    if ($zaBrishenje){deletePost($brishiTaskID);}
+    if (!$goIma) {addTask($day, $hour, $priority, $text, $userid);}
 
 }
 
@@ -326,7 +326,6 @@ function updateLogic($day, $hour, $priority, $text, $userid, $taskid)
         }
     }
     if($goIma && $taskid!=$deletedTaskID){
-        echo "go ima: ".$deletedTaskID;
         deletePost($deletedTaskID);
     }
     updateTask($day, $hour, $priority, $text, $taskid);
