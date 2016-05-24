@@ -1,10 +1,48 @@
-<ul class="nav nav-pills nav-justified">
-    <li class="active"><a data-toggle="tab" href="#stable">Schedule</a></li>
-    <li><a data-toggle="pill" href="#addtask">Add Task</a></li>
-    <li><a data-toggle="tab" href="#updatetasks">Update Tasks</a></li>
-    <li><a data-toggle="tab" href="#deletetasks">Delete Task</a></li>
-    <li><a data-toggle="tab" href="#makeadmin">Make Admin</a></li>
-    <li><a data-toggle="tab" href="#deleteuser">Delete User</a></li>
+<!--<ul class="nav nav-pills nav-justified">-->
+<!--    <li class="active"><a data-toggle="tab" href="#stable">Schedule</a></li>-->
+<!--    <li><a data-toggle="pill" href="#addtask">Add Task</a></li>-->
+<!--    <li><a data-toggle="tab" href="#updatetasks">Update Tasks</a></li>-->
+<!--    <li><a data-toggle="tab" href="#deletetasks">Delete Task</a></li>-->
+<!--    <li><a data-toggle="tab" href="#makeadmin">Make Admin</a></li>-->
+<!--    <li><a data-toggle="tab" href="#deleteuser">Delete User</a></li>-->
+<!--</ul>-->
+<ul class="nav nav-tabs-admin" id="myAdminTab">
+    <div class="liner-admin"></div>
+
+    <li><a href="#addtask" data-toggle="tab" >
+                   <span class="round-tabs two">
+                     <i class="glyphicon glyphicon-plus-sign"></i>
+                   </span>
+        </a>
+    </li>
+    <li class="active">
+        <a href="#stable" data-toggle="tab" >
+                  <span class="round-tabs one">
+                    <i class="glyphicon glyphicon-calendar"></i>
+                  </span>
+        </a></li>
+    <li><a href="#viewtasks" data-toggle="tab" >
+                  <span class="round-tabs three">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                  </span> </a>
+    </li>
+
+    <li><a href="#deletetasks" data-toggle="tab" >
+                   <span class="round-tabs four">
+                    <i class="glyphicon glyphicon-remove-sign"></i>
+                  </span>
+        </a></li>
+    <li><a href="#viewtasks" data-toggle="tab" >
+                  <span class="round-tabs three">
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                  </span> </a>
+    </li>
+
+    <li><a href="#deletetasks" data-toggle="tab" >
+                   <span class="round-tabs four">
+                    <i class="glyphicon glyphicon-remove-sign"></i>
+                  </span>
+        </a></li>
 </ul>
 
 <div class="tab-content">

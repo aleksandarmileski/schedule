@@ -7,18 +7,19 @@
 
 .board{
     width: 80%;
-    margin: 10px auto;
-    height:       500px;
+    margin: 0px auto;
+    height: 500px;
     background: #fff;
     box-shadow: 10px 10px #ccc; 
 }
-.board .nav-tabs {
+.board .nav-tabs .nav-tabs-admin {
     position: relative;
     /* border-bottom: 0; */
     /* width: 80%; */
     margin: 0px auto;
     margin-bottom: 0;
     box-sizing: border-box;
+    height: 110px;
 
 }
 
@@ -28,18 +29,29 @@ p.narrow{
 }
 
 .liner{
-    height: 5px;
-    background: #ddd;
-    position: absolute;
-    width: 65%;
+    height: 2px;
+    background: #76b852;
+    position: relative;
+    width: 75%;
     margin: 0 auto;
     left: 0;
     right: 0;
-    top: 11%;
+    top: 50%;
+    z-index: 1;
+}
+.liner-admin{
+    height: 2px;
+    background: #76b852;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
     z-index: 1;
 }
 
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+.nav-tabs > li.active > a, .nav-tabs-admin > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs-admin > li.active > a:hover, .nav-tabs > li.active > a:focus, .nav-tabs-admin > li.active > a:focus {
     color: #555555;
     cursor: default;
     /* background-color: #ffffff; */
@@ -62,52 +74,48 @@ span.round-tabs{
 }
 
 span.round-tabs.one{
-    color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
+    color: #76b852;border: 2px solid #76b852;
 }
 
 li.active span.round-tabs.one{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: rgb(34, 194, 34);
+    background: #e3f1da !important;
+    border: 3px solid #76b852;
+    color: #76b852;
 }
 
 span.round-tabs.two{
-    color: #febe29;border: 2px solid #febe29;
+    color: #76b852;border: 2px solid #76b852;
 }
 
 li.active span.round-tabs.two{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #febe29;
+    background: #e3f1da !important;
+    border: 3px solid #76b852;
+    color: #76b852;
 }
 
 span.round-tabs.three{
-    color: #3e5e9a;border: 2px solid #3e5e9a;
+    color: #76b852;border: 2px solid #76b852;
 }
 
 li.active span.round-tabs.three{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #3e5e9a;
+    background: #e3f1da !important;
+    border: 3px solid #76b852;
+    color: #76b852;
 }
 
 span.round-tabs.four{
-    color: #f1685e;border: 2px solid #f1685e;
+    color: #76b852;border: 2px solid #76b852;
 }
 
 li.active span.round-tabs.four{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #f1685e;
-}
-
-span.round-tabs.five{
-    color: #999;border: 2px solid #999;
+    background: #e3f1da !important;
+    border: 3px solid #76b852;
+    color: #76b852;
 }
 
 li.active span.round-tabs.five{
     background: #fff !important;
-    border: 2px solid #ddd;
+    border: 3px solid #76b852;
     color: #999;
 }
 
@@ -116,6 +124,10 @@ li.active span.round-tabs.five{
 }
 .nav-tabs > li {
     width: 25%;
+}
+.nav-tabs-admin > li {
+    width: 15.9%;
+    display: inline-block;
 }
 /*li.active:before {*/
     /*content: " ";*/
@@ -145,16 +157,16 @@ li.active span.round-tabs.five{
     li.active:after {
         content: " ";
         position: absolute;
-        left: 45%;
+        left: 46%;
         opacity:1;
         margin: 0 auto;
         transform: rotate(180deg);
         top: 0px;
-        border: 20px solid transparent;
+        border: 1em solid transparent;
         border-bottom-color: #76b852;
 
     }
-    .nav-tabs > li a{
+    .nav-tabs > li a, .nav-tabs-admin > li a{
      width: 70px;
      height: 70px;
      margin: 20px auto;
@@ -162,7 +174,7 @@ li.active span.round-tabs.five{
      padding: 0;
  }
 
- .nav-tabs > li a:hover{
+ .nav-tabs > li a:hover, .nav-tabs-admin > li a:hover{
     background: transparent;
 }
 
@@ -170,7 +182,7 @@ li.active span.round-tabs.five{
 }
 .tab-pane{
  position: relative;
- padding-top: 50px;
+ padding-top: 10px;
 }
 .tab-content .head{
     font-family: 'Roboto Condensed', sans-serif;
@@ -191,15 +203,40 @@ li.active span.round-tabs.five{
     color: #ffffff;
 }
 
+#myAdminTab {
+    height:110px;
+    margin-top: -2px;
+}
 
 
+@media( max-width : 1000px ) {
+    li.active:after {
+        left:44%;
+    }
+}
 
+@media( max-width : 800px ) {
+    li.active:after {
+        left:40%;
+    }
+
+}
 
 @media( max-width : 585px ){
 
     .board {
         width: 90%;
         height:auto !important;
+    }
+    .nav-tabs, .nav-tabs-admin {
+        height: 100px;
+    }
+    .liner-admin{
+        top:40%;
+    }
+    .nav-tabs-admin > li {
+        width: 15%;
+        display: inline-block;
     }
     span.round-tabs {
         font-size:16px;

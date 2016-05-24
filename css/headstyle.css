@@ -48,7 +48,7 @@ td {
 
 .tableTitle{
     font-size: 4em;
-    margin-top: 50px;
+    margin-top: 10px;
 
 }
 
@@ -67,7 +67,6 @@ td {
     }
     .tableTitle{
         font-size: 3em;
-        margin-top: 20px;
 
     }
 }
