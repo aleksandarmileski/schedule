@@ -43,7 +43,7 @@ td {
 }
 
 .whitey{
-    background-color: white;
+    background: rgba(255, 255, 255, 0.97);
 }
 
 .tableTitle{

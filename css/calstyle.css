@@ -33,7 +33,7 @@ select option{
 }
 
 .selUser {
-	margin: 10px auto;
+	margin: 0px auto 10px;
 }
 
 .addUserTask {

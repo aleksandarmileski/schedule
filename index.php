@@ -32,7 +32,6 @@ if (isset($_POST['formSignup'])) { //User choose to Sign Up
   <!-- login CSS -->
   <link rel="stylesheet" href="css/style.css">
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src="js/index.js"></script>
 </head>
 
 
@@ -42,7 +41,11 @@ if (isset($_POST['formSignup'])) { //User choose to Sign Up
   </div>
 
   <?php include 'indexForm.php'; ?>
-
+  <script>
+    $('.message a').click(function(){
+      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    });
+  </script>
 </body>
 
 </html>

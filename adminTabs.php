@@ -21,7 +21,7 @@
                     <i class="glyphicon glyphicon-calendar"></i>
                   </span>
         </a></li>
-    <li><a href="#viewtasks" data-toggle="tab" >
+    <li><a href="#updatetasks" data-toggle="tab" >
                   <span class="round-tabs three">
                     <i class="glyphicon glyphicon-list-alt"></i>
                   </span> </a>
@@ -32,15 +32,15 @@
                     <i class="glyphicon glyphicon-remove-sign"></i>
                   </span>
         </a></li>
-    <li><a href="#viewtasks" data-toggle="tab" >
+    <li><a href="#makeadmin" data-toggle="tab" >
                   <span class="round-tabs three">
-                    <i class="glyphicon glyphicon-list-alt"></i>
+                    <i class="glyphicon glyphicon-user"></i>
                   </span> </a>
     </li>
 
-    <li><a href="#deletetasks" data-toggle="tab" >
+    <li><a href="#deleteuser" data-toggle="tab" >
                    <span class="round-tabs four">
-                    <i class="glyphicon glyphicon-remove-sign"></i>
+                    <i class="glyphicon glyphicon-trash"></i>
                   </span>
         </a></li>
 </ul>

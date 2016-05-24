@@ -1,8 +1,5 @@
 $( document ).ready(function() {
-	$('.message a').click(function(){
-		$('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-	});
-
+	
 	$('.adminclose').click(function(){
 		var id=$(this).attr('id');
 

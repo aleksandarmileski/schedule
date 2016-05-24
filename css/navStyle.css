@@ -208,10 +208,18 @@ li.active span.round-tabs.five{
     margin-top: -2px;
 }
 
+@media( max-width : 1400px ) {
+    .nav-tabs-admin > li.active:after {
+        left:42%;
+    }
+}
 
 @media( max-width : 1000px ) {
     li.active:after {
         left:44%;
+    }
+    .nav-tabs-admin > li.active:after {
+        left:40%;
     }
 }
 
@@ -219,11 +227,18 @@ li.active span.round-tabs.five{
     li.active:after {
         left:40%;
     }
-
+    .nav-tabs-admin > li.active:after {
+        left:38%;
+    }
 }
 
 @media( max-width : 585px ){
-
+    h1{
+        font-size: 20px;
+    }
+    .customheader{
+        height: 30px;
+    }
     .board {
         width: 90%;
         height:auto !important;
@@ -259,7 +274,14 @@ li.active span.round-tabs.five{
         left: 35%;
     }
 
+    .nav-tabs-admin > li.active:after {
+        left: 20%;
+    }
+
     .btn-outline-rounded {
         padding:12px 20px;
+    }
+    legend{
+        width: 100%;
     }
 }
